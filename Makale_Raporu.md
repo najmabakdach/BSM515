@@ -205,3 +205,102 @@ Ayrıca araştırmanın yalnızca Java ile geliştirilmiş açık kaynaklı sist
 Son aşamada ise kod kokularının görülme sıklıkları değerlendirmeye dahil edilerek bakım süreçlerinde öncelikli olabilecek kod kokuları araştırılmaktadır.
 
 Bu yönüyle makale, yalnızca kod kokularının tespit edilmesine değil, bu kokuların yazılımın iç kalite özellikleriyle ilişkilerinin değerlendirilmesine de odaklanmaktadır.
+
+3. Bulguların ve Sonuçların Değerlendirilmesi
+
+Bu bölümde, Rahman ve arkadaşlarının (2025) gerçekleştirdiği araştırmanın bulguları, çalışmada belirlenen üç araştırma sorusu doğrultusunda değerlendirilmektedir. Araştırmada kod kokuları ile yazılım metrikleri arasındaki ilişkiler incelenmiş, kod kokuları etki düzeylerine göre sınıflandırılmış ve görülme sıklıklarıyla birlikte analiz edilmiştir.
+
+3.1. RQ1 – Kod Kokuları ile Yazılım Metrikleri Arasındaki İlişkiler
+
+Birinci araştırma sorusu kapsamında, 13 farklı kod kokusu ile 25 iç yazılım metriği arasındaki istatistiksel ilişkiler incelenmiştir.
+
+Araştırmacılar, Spearman sıra korelasyon katsayısını kullanarak toplam 325 korelasyon değeri hesaplamışlardır. Elde edilen sonuçlar, kod kokularının yazılım metrikleriyle aynı düzeyde ilişkili olmadığını göstermiştir.
+
+Özellikle Anti Singleton, Blob, Complex Class, Large Class, Long Method ve Long Parameter List gibi kod kokularının birçok yazılım metriğiyle güçlü ilişkiler gösterdiği belirlenmiştir.
+
+Bu ilişkilerin özellikle yazılımın büyüklüğünü temsil eden metriklerde yoğunlaştığı görülmüştür. Number of Files (NOF), Number of Classes (NOC), Lines of Code (LOC) ve Number of Methods (NOM) gibi metrikler bu kapsamda öne çıkmaktadır.
+
+Araştırmada 25 yazılım metriğinin 11’i yüksek, 6’sı orta ve 8’i düşük etki düzeyinde sınıflandırılmıştır.
+
+En yüksek ortalama ilişki puanına sahip metrik, 0,093 değeriyle Number of Files (NOF) olmuştur. Buna karşılık Ratio of Comment to Code (RCTC) metriği en düşük etki düzeyine sahip metrik olarak belirlenmiştir.
+
+Bu sonuçlar, kod kokularının özellikle yazılımın büyüklüğü ve yapısal özellikleriyle ilişkili olduğunu göstermektedir.
+
+Bununla birlikte, korelasyon katsayılarının kod kokuları ile yazılım metrikleri arasındaki istatistiksel ilişkileri ifade ettiği unutulmamalıdır. Dolayısıyla bu sonuçlar, belirli bir metriğin artmasının doğrudan kod kokusuna neden olduğunu kanıtlamamaktadır.
+
+3.2. RQ2 – Etki Düzeyi Yüksek Kod Kokuları
+
+İkinci araştırma sorusu kapsamında, kod kokularının yazılım metrikleriyle olan ilişkileri kullanılarak etki puanları hesaplanmış ve kod kokuları yüksek, orta ve düşük olmak üzere üç grupta sınıflandırılmıştır.
+
+Araştırmanın sonuçlarına göre yüksek etki düzeyine sahip beş kod kokusu belirlenmiştir:
+
+Kod Kokusu	Etki Puanı	Etki Düzeyi
+Long Method	0,86	High
+Anti Singleton	0,85	High
+Complex Class	0,85	High
+Large Class	0,83	High
+Long Parameter List	0,83	High
+
+Bu sonuçlara göre Long Method, 0,86 etki puanıyla ilk sırada yer almaktadır.
+
+Özellikle Long Method, Complex Class ve Large Class gibi kod kokularının yüksek etki düzeyine sahip olması, metot ve sınıf büyüklüğüyle ilişkili tasarım sorunlarının yazılım metrikleri açısından önemli olduğunu göstermektedir.
+
+Orta etki düzeyinde Refused Parent Bequest, Spaghetti Code, Speculative Generality ve Blob kod kokuları bulunmaktadır.
+
+Düşük etki düzeyinde ise Class Data Should Be Private, Many Field Attributes But Not Complex, Base Class Should Be Abstract ve Lazy Class yer almaktadır.
+
+Araştırmacılar, elde edilen sınıflandırmayı dört deneyimli yazılım geliştiricisinin değerlendirmeleriyle de karşılaştırmışlardır.
+
+Karşılaştırma sonucunda, özellikle yüksek ve düşük etki düzeyindeki kod kokularında araştırma bulguları ile uzman görüşleri arasında belirli düzeyde benzerlikler bulunduğu görülmüştür. Buna karşılık orta etki düzeyindeki kod kokularının değerlendirilmesinde daha fazla farklılık ortaya çıkmıştır.
+
+Bu durum, geliştiricilerin kod kokularının önemini yalnızca kişisel deneyimlerine dayanarak değerlendirmelerinin her zaman yeterli olmayabileceğini göstermektedir.
+
+Araştırmanın bu bölümündeki temel katkısı, kod kokularının önceliklendirilmesi için yazılım metriklerine dayalı sayısal bir değerlendirme yaklaşımı sunmasıdır.
+
+3.3. RQ3 – Kod Kokularının Etki ve Görülme Sıklığı
+
+Üçüncü araştırma sorusunda, kod kokularının etki düzeyleri ile yazılım sistemlerinde görülme sıklıkları birlikte değerlendirilmiştir.
+
+Araştırmacılar, 35 yazılım sisteminde her kod kokusunun ortalama görülme sıklığını hesaplamışlardır.
+
+Elde edilen sonuçlara göre en sık karşılaşılan dört kod kokusu şunlardır:
+
+Kod Kokusu	Proje Başına Ortalama Görülme Sıklığı
+Long Method	733,06
+Complex Class	565,06
+Long Parameter List	245,77
+Large Class	231,60
+
+Bu dört kod kokusunun hem yüksek etki düzeyine sahip olduğu hem de yazılım sistemlerinde sık görüldüğü belirlenmiştir.
+
+Özellikle Long Method, araştırmada hem en yüksek etki puanına hem de en yüksek ortalama görülme sıklığına sahip kod kokusu olarak öne çıkmaktadır.
+
+Buna karşılık Anti Singleton, yüksek etki düzeyine sahip olmasına rağmen orta görülme sıklığı grubunda yer almaktadır.
+
+Benzer şekilde Refused Parent Bequest, Spaghetti Code ve Speculative Generality gibi kod kokuları orta etki düzeyine sahip olmalarına rağmen düşük görülme sıklığı göstermektedir.
+
+Bu bulgular, kod kokularının etki düzeyleri ile görülme sıklıkları arasında her zaman doğrudan bir paralellik bulunmadığını göstermektedir.
+
+Araştırmacılar, bakım süreçlerinde yalnızca bir kod kokusunun ne kadar sık görüldüğüne değil, yazılım metrikleriyle ne düzeyde ilişkili olduğuna da dikkat edilmesi gerektiğini vurgulamaktadır.
+
+Bu nedenle Long Method, Complex Class, Large Class ve Long Parameter List kod kokuları, hem yüksek etki düzeyleri hem de yüksek görülme sıklıkları nedeniyle yeniden yapılandırma (Refactoring) çalışmalarında öncelikli olarak değerlendirilebilecek kod kokuları arasında yer almaktadır.
+
+3.4. Araştırmanın Genel Sonuçları
+
+Araştırma sonucunda, kod kokularının yazılımın iç kalite metrikleriyle farklı düzeylerde ilişkili olduğu ortaya konulmuştur.
+
+Özellikle yazılımın büyüklüğüyle ilişkili metriklerin ve metot veya sınıf büyüklüğünü temsil eden kod kokularının araştırma bulgularında öne çıktığı görülmüştür.
+
+Çalışmanın önemli sonuçlarından biri, bütün kod kokularının aynı öncelikle ele alınmasının gerekli olmadığını göstermesidir.
+
+Kod kokularının etki düzeyleri ve görülme sıklıkları birlikte değerlendirildiğinde, bakım süreçlerinde daha sistematik önceliklendirme kararları verilebileceği anlaşılmaktadır.
+
+Araştırma ayrıca geliştiricilerin kod kokularına ilişkin değerlendirmelerinin kişisel deneyimlere göre değişebildiğini göstermiştir. Bu nedenle yazılım metriklerine dayalı değerlendirmelerin, geliştiricilerin kararlarını destekleyebilecek nesnel veriler sağlayabileceği belirtilmektedir.
+
+Bununla birlikte, çalışmada kullanılan etki puanları korelasyon analizine dayanmaktadır. Dolayısıyla araştırma sonuçları, kod kokularının yazılım kalitesindeki değişimlere doğrudan neden olduğunu veya belirli bir kod kokusunun giderilmesinin yazılım kalitesini kesin olarak artıracağını kanıtlamamaktadır.
+
+Ayrıca araştırmanın Java ile geliştirilmiş açık kaynaklı sistemlerle ve iç yazılım metrikleriyle sınırlı olması, sonuçların farklı yazılım ortamlarına genellenmesinde dikkate alınmalıdır.
+
+Genel olarak çalışma, kod kokularının yalnızca tespit edilmesine odaklanmak yerine, yazılım metrikleriyle ilişkilerinin analiz edilerek önceliklendirilmesine yönelik bir yaklaşım sunmaktadır.
+
+Bu yaklaşımın, yazılım bakım faaliyetlerinin planlanmasına ve gelecekte etki düzeyine dayalı otomatik Refactoring araçlarının geliştirilmesine katkı sağlayabileceği değerlendirilmektedir.
