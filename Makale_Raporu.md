@@ -304,3 +304,82 @@ Ayrıca araştırmanın Java ile geliştirilmiş açık kaynaklı sistemlerle ve
 Genel olarak çalışma, kod kokularının yalnızca tespit edilmesine odaklanmak yerine, yazılım metrikleriyle ilişkilerinin analiz edilerek önceliklendirilmesine yönelik bir yaklaşım sunmaktadır.
 
 Bu yaklaşımın, yazılım bakım faaliyetlerinin planlanmasına ve gelecekte etki düzeyine dayalı otomatik Refactoring araçlarının geliştirilmesine katkı sağlayabileceği değerlendirilmektedir.
+
+
+4. Makalenin Eleştirel Değerlendirilmesi
+
+Bu bölümde, Rahman ve arkadaşlarının (2025) gerçekleştirdiği araştırma; güçlü yönleri, yöntemsel sınırlılıkları, önceki çalışmalarla ilişkisi ve yazılım mühendisliği alanına sağladığı katkılar açısından eleştirel olarak değerlendirilmektedir.
+
+4.1. Araştırmanın Güçlü Yönleri
+
+Araştırmanın en önemli güçlü yönlerinden biri, geniş kapsamlı bir veri kümesi üzerinde gerçekleştirilmiş olmasıdır. Çalışmada Apache ve Eclipse ekosistemlerinden seçilen 35 açık kaynaklı Java yazılım sistemi incelenmiştir. Bu sistemlerde 13 farklı kod kokusu ile 25 iç yazılım metriği arasındaki ilişkilerin analiz edilmesi, araştırmanın kapsamını genişletmiştir.
+
+Çalışmanın diğer bir güçlü yönü, kod kokularının yalnızca tespit edilmesine odaklanmamasıdır. Araştırmacılar, kod kokularının yazılım metrikleriyle ilişkilerini inceleyerek bakım süreçlerinde hangi kod kokularının öncelikli olarak ele alınabileceğini belirlemeye çalışmışlardır.
+
+Araştırmada Spearman sıra korelasyon katsayısının kullanılması, değişkenler arasındaki ilişkilerin istatistiksel olarak değerlendirilmesini sağlamıştır. Ayrıca etki puanlarına dayalı bir sınıflandırma yaklaşımının benimsenmesi, kod kokularının karşılaştırılmasını kolaylaştırmıştır.
+
+Çalışmanın dikkat çeken bir diğer yönü, istatistiksel sonuçların dört deneyimli yazılım geliştiricisinin görüşleriyle karşılaştırılmasıdır. Bu karşılaştırma, yazılım metriklerine dayalı değerlendirmeler ile geliştiricilerin deneyimlerine dayanan değerlendirmeler arasındaki benzerliklerin ve farklılıkların ortaya konulmasına katkı sağlamıştır.
+
+Son olarak, kod kokularının etki düzeyleri ile görülme sıklıklarının birlikte değerlendirilmesi, araştırmanın uygulamaya yönelik önemini artırmaktadır. Bu yaklaşım, yazılım bakım faaliyetlerinde önceliklendirme kararlarının daha sistematik biçimde verilmesine yardımcı olabilecek bir temel sunmaktadır.
+
+4.2. Araştırmanın Sınırlılıkları
+
+Araştırmanın önemli sınırlılıklarından biri, yalnızca Java programlama diliyle geliştirilmiş açık kaynaklı yazılım sistemlerinin incelenmiş olmasıdır.
+
+Java’nın nesneye dayalı programlama özellikleri, çalışmanın konusu açısından uygun bir araştırma ortamı sağlamaktadır. Ancak farklı programlama dillerinin yapısal özellikleri ve yazılım geliştirme yaklaşımları değişebileceğinden, elde edilen sonuçların diğer dillere doğrudan genellenmesi mümkün olmayabilir.
+
+Bir diğer sınırlılık, araştırmanın yalnızca iç yazılım kalite metriklerine odaklanmasıdır. Yazılımın bakım kolaylığı, hata eğilimi ve değiştirilebilirliği gibi dış kalite özellikleri doğrudan değerlendirilmemiştir.
+
+Bu nedenle araştırmada yüksek etki düzeyine sahip olduğu belirlenen bir kod kokusunun, gerçek yazılım bakım faaliyetlerinde aynı düzeyde olumsuz sonuçlar oluşturacağı kesin olarak söylenemez.
+
+Araştırmanın yöntemsel açıdan dikkat edilmesi gereken bir başka yönü, etki puanlarının korelasyon analizine dayanmasıdır.
+
+Korelasyon, iki değişken arasındaki istatistiksel ilişkinin yönünü ve gücünü gösterir. Ancak bu ilişkinin varlığı, değişkenlerden birinin diğerine neden olduğunu kanıtlamaz.
+
+Dolayısıyla araştırmada kullanılan etki kavramı, kod kokularının yazılım kalitesine doğrudan neden olduğu değişimleri değil, yazılım metrikleriyle gösterdikleri istatistiksel ilişkileri ifade etmektedir.
+
+Ayrıca kod kokularının tespit edilmesinde otomatik analiz araçlarının kullanılması, sonuçların kullanılan araçların tespit doğruluğundan etkilenebileceği anlamına gelmektedir.
+
+Bu sınırlılıklar, araştırmanın sonuçlarını geçersiz kılmamakla birlikte, bulguların yorumlanmasında ve farklı yazılım ortamlarına uygulanmasında dikkate alınmalıdır.
+
+4.3. Bulguların Önceki Çalışmalarla Karşılaştırılması
+
+Rahman ve arkadaşlarının (2025) çalışması, kod kokularının yazılım kalitesi üzerindeki etkilerini inceleyen önceki araştırmalarla ilişkili olarak değerlendirilebilir.
+
+Bu kapsamda Palomba ve arkadaşlarının (2018) gerçekleştirdiği geniş ölçekli ampirik araştırma önemli bir karşılaştırma noktası oluşturmaktadır.
+
+Palomba ve arkadaşları, kod kokularının yazılımın bakım kolaylığı ve değişime veya hataya yatkınlığı gibi dış kalite özellikleriyle ilişkilerini incelemişlerdir.
+
+Rahman ve arkadaşlarının çalışması ise kod kokuları ile iç yazılım metrikleri arasındaki ilişkilere odaklanmaktadır.
+
+Her iki araştırmada da özellikle yazılımın büyüklüğü ve karmaşıklığıyla ilişkili bazı kod kokularının önemli olduğu görülmektedir.
+
+Örneğin Long Method, Complex Class ve Large Class gibi kod kokuları, Rahman ve arkadaşlarının araştırmasında yüksek etki düzeyinde sınıflandırılmıştır. Bu sonuç, Palomba ve arkadaşlarının büyüklük ve karmaşıklıkla ilişkili kod kokularına yönelik bazı bulgularıyla benzerlik göstermektedir.
+
+Bununla birlikte, iki araştırmanın sonuçları tamamen aynı değildir.
+
+Özellikle Long Parameter List kod kokusu, Rahman ve arkadaşlarının çalışmasında yüksek etki düzeyinde değerlendirilirken, Palomba ve arkadaşlarının araştırmasında daha sınırlı bir etkiyle ilişkilendirilmiştir.
+
+Bu farklılık, araştırmalarda kullanılan kalite göstergelerinin ve değerlendirme yöntemlerinin sonuçlar üzerinde etkili olabileceğini düşündürmektedir.
+
+Dolayısıyla kod kokularının önemini değerlendirirken yalnızca tek bir araştırmanın sonuçlarına dayanmak yerine, farklı kalite boyutlarını inceleyen çalışmaların birlikte ele alınması yararlı olacaktır.
+
+4.4. Kişisel Akademik Değerlendirme
+
+Bu çalışmanın yazılım mühendisliği açısından önemli katkısı, kod kokularının değerlendirilmesinde yalnızca varlıklarının veya görülme sıklıklarının dikkate alınmasının yeterli olmayabileceğini göstermesidir.
+
+Yazılım geliştirme süreçlerinde zaman ve kaynaklar sınırlı olduğundan, bütün kod kokularının aynı anda giderilmesi her zaman mümkün değildir. Bu nedenle bakım faaliyetlerinin belirli ölçütlere göre önceliklendirilmesi önem taşımaktadır.
+
+Araştırmada önerilen yaklaşım, kod kokularının yazılım metrikleriyle ilişkilerini kullanarak bu önceliklendirme sürecine katkı sağlayabilecek sayısal veriler sunmaktadır.
+
+Bununla birlikte, yalnızca korelasyon temelli etki puanlarının kullanılması, gerçek bakım maliyetlerinin ve yeniden yapılandırma işlemlerinin sonuçlarının değerlendirilmesi açısından yeterli değildir.
+
+Bu nedenle gelecekte yapılacak araştırmalarda, kod kokularının giderilmesinden önce ve sonra yazılım metriklerinin karşılaştırılması yararlı olabilir.
+
+Ayrıca bakım süresi, hata sayısı ve geliştiricilerin kodu anlama süresi gibi göstergelerin değerlendirmeye dahil edilmesi, elde edilen sonuçların uygulamadaki karşılığını daha açık biçimde ortaya koyabilir.
+
+Farklı programlama dillerinde ve ticari yazılım projelerinde gerçekleştirilecek benzer çalışmalar da araştırma bulgularının genellenebilirliğini değerlendirmek açısından önemlidir.
+
+Sonuç olarak Rahman ve arkadaşlarının (2025) çalışması, kod kokularının yazılım metrikleriyle ilişkilerinin sistematik biçimde analiz edilmesi ve bakım faaliyetlerinde önceliklendirme yapılması açısından değerli bir akademik katkı sunmaktadır.
+
+Ancak bu yaklaşımın doğrudan yazılım kalitesini iyileştirdiğini göstermek için, yeniden yapılandırma süreçlerinin gerçek sonuçlarını inceleyen ek ampirik araştırmalara ihtiyaç bulunmaktadır.
