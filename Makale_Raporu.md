@@ -383,3 +383,19 @@ Farklı programlama dillerinde ve ticari yazılım projelerinde gerçekleştiril
 Sonuç olarak Rahman ve arkadaşlarının (2025) çalışması, kod kokularının yazılım metrikleriyle ilişkilerinin sistematik biçimde analiz edilmesi ve bakım faaliyetlerinde önceliklendirme yapılması açısından değerli bir akademik katkı sunmaktadır.
 
 Ancak bu yaklaşımın doğrudan yazılım kalitesini iyileştirdiğini göstermek için, yeniden yapılandırma süreçlerinin gerçek sonuçlarını inceleyen ek ampirik araştırmalara ihtiyaç bulunmaktadır.
+
+5. Literatür Taraması ve Önceki Çalışmalar
+
+5.1. Fowler (1999) – Refactoring: Improving the Design of Existing Code
+
+Martin Fowler (1999), Refactoring: Improving the Design of Existing Code adlı kitabının üçüncü bölümünde, yazılım tasarımındaki olası sorunlara işaret eden 22 farklı kod kokusunu (Code Smell) ele almıştır.
+
+Bu kod kokuları arasında Duplicated Code, Long Method, Large Class, Long Parameter List, Feature Envy, Lazy Class ve Refused Bequest gibi örnekler bulunmaktadır. Bu yapılar, kodun anlaşılabilirliğini ve bakımını zorlaştırabilecek tasarım sorunları olarak değerlendirilmiştir.
+
+Fowler, kod kokularının doğrudan bir yazılım hatası olmadığını ve her durumda yeniden düzenleme gerektirmediğini vurgulamıştır. Bununla birlikte, uygun durumlarda Extract Method, Extract Class ve Move Method gibi yeniden düzenleme (Refactoring) teknikleriyle kod yapısının iyileştirilebileceğini açıklamıştır.
+
+Bu çalışma, kod kokularının tanımlanması ve değerlendirilmesi açısından önemli bir kavramsal temel sunmaktadır. Ancak kod kokularının yazılım metrikleri üzerindeki etkilerini istatistiksel yöntemlerle ölçmemektedir.
+
+Fowler’ın yaklaşımı kod kokularının tespit edilmesine ve giderilmesine yönelik tasarım ilkelerine odaklanırken, Rahman ve arkadaşlarının (2025) çalışması kod kokuları ile yazılım metrikleri arasındaki ilişkileri deneysel ve istatistiksel yöntemlerle incelemektedir. Bu nedenle Fowler’ın kitabı, incelenen makalenin teorik arka planını oluşturan temel kaynaklardan biridir.
+
+Kaynak: Fowler, M. (1999). Refactoring: Improving the Design of Existing Code. Addison-Wesley.
