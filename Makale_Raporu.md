@@ -398,4 +398,14 @@ Bu çalışma, kod kokularının tanımlanması ve değerlendirilmesi açısınd
 
 Fowler’ın yaklaşımı kod kokularının tespit edilmesine ve giderilmesine yönelik tasarım ilkelerine odaklanırken, Rahman ve arkadaşlarının (2025) çalışması kod kokuları ile yazılım metrikleri arasındaki ilişkileri deneysel ve istatistiksel yöntemlerle incelemektedir. Bu nedenle Fowler’ın kitabı, incelenen makalenin teorik arka planını oluşturan temel kaynaklardan biridir.
 
-Kaynak: Fowler, M. (1999). Refactoring: Improving the Design of Existing Code. Addison-Wesley.
+5.2. Palomba ve Arkadaşları (2018) – Kod Kokularının Bakım Yapılabilirliğine Etkisi
+
+Palomba ve arkadaşları (2018), On the Diffuseness and the Impact on Maintainability of Code Smells: A Large Scale Empirical Investigation adlı çalışmalarında, kod kokularının yazılım sistemlerindeki yaygınlığını ve bakım yapılabilirliği ile ilişkisini araştırmıştır.
+
+Çalışmada, 30 açık kaynaklı Java projesinin 395 sürümü incelenmiş ve 13 farklı kod kokusuna ait, manuel olarak doğrulanmış 17.350 örnek analiz edilmiştir. Araştırmada kod kokularının değişime yatkınlık (Change-Proneness) ve hata eğilimi (Fault-Proneness) ile ilişkileri değerlendirilmiştir.
+
+Elde edilen sonuçlar, Long Method ve Spaghetti Code gibi kod kokularının yaygın olduğunu göstermiştir. Ayrıca kod kokusu içeren sınıfların, kod kokusu içermeyen sınıflara kıyasla istatistiksel olarak anlamlı düzeyde daha yüksek değişime yatkınlık ve hata eğilimi gösterdiği belirlenmiştir.
+
+Bununla birlikte, kod kokularının kaldırılmasının değişime yatkınlık açısından olumlu sonuçlarla ilişkili olabildiği, ancak hata eğiliminde her zaman belirgin bir azalma sağlamadığı görülmüştür. Bu nedenle araştırmacılar, kod kokularının varlığı ile yazılım hataları arasında doğrudan bir neden-sonuç ilişkisi kurulamayacağını vurgulamıştır.
+
+Palomba ve arkadaşları (2018), kod kokularının yazılım bakım süreçleriyle ilişkisini değişiklikler ve hatalar üzerinden incelerken, Rahman ve arkadaşları (2025) kod kokuları ile iç yazılım metrikleri arasındaki istatistiksel ilişkileri analiz etmiştir. Dolayısıyla bu iki çalışma, kod kokularının yazılım kalitesi üzerindeki etkilerini farklı ölçütlerle ele alarak birbirini tamamlamaktadır.
