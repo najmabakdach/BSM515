@@ -434,3 +434,19 @@ Verma ve arkadaşları (2023), “Code Smell Prioritization in Object-Oriented S
 Araştırmanın bulguları, kod kokularının önceliklendirilmesinde kullanılan sıralama formüllerinin sınırlı olduğunu, değerlendirme süreçlerinin büyük ölçüde manuel yöntemlere dayandığını ve çalışmaların çoğunlukla Java tabanlı projeler üzerinde gerçekleştirildiğini ortaya koymuştur. Bu doğrultuda araştırmacılar, daha kapsamlı yazılım metriklerinin kullanılması, otomatik değerlendirme yöntemlerinin geliştirilmesi ve farklı programlama dilleri üzerinde deneysel çalışmaların artırılması gerektiğini vurgulamıştır.
 
 Verma ve arkadaşlarının çalışması, kod kokularının yalnızca tespit edilmesinin yeterli olmadığını, bakım ve yeniden yapılandırma (refactoring) süreçlerinde hangi kod kokularının öncelikli olarak ele alınacağının da belirlenmesi gerektiğini göstermektedir. Bu yönüyle çalışma, kod kokuları ile yazılım metrikleri arasındaki ilişkilerin analiz edilmesinin, yazılım bakım kararlarını desteklemek açısından taşıdığı önemi ortaya koyan tamamlayıcı bir literatür kaynağı niteliğindedir.
+
+6. Genel Değerlendirme ve Sonuç
+
+Bu raporda, Rahman ve arkadaşları (2025) tarafından gerçekleştirilen “Software Metric Based Impact Analysis of Code Smells – A Large Scale Empirical Study” başlıklı araştırma incelenmiştir. Çalışmanın temel amacı, nesne yönelimli yazılım sistemlerinde kod kokuları (Code Smells) ile iç yazılım metrikleri arasındaki ilişkileri analiz ederek yazılım bakım süreçlerinde önceliklendirme kararlarına katkı sağlamaktır.
+
+Araştırmada, 35 açık kaynaklı Java yazılım sistemi üzerinde 13 farklı kod kokusu ve 25 iç yazılım metriği değerlendirilmiştir. Kod kokularının tespit edilmesinde DÉCOR, yazılım metriklerinin hesaplanmasında ise Understand aracı kullanılmıştır. Elde edilen veriler, Spearman sıra korelasyon katsayısı yardımıyla analiz edilmiştir.
+
+Araştırma bulguları, kod kokularının yazılım metrikleriyle farklı düzeylerde ilişkili olduğunu göstermiştir. Özellikle Long Method, Anti Singleton, Complex Class, Large Class ve Long Parameter List yüksek etki düzeyine sahip kod kokuları olarak belirlenmiştir. Bununla birlikte Long Method, Complex Class, Long Parameter List ve Large Class türlerinin incelenen sistemlerde yüksek görülme sıklığına sahip olduğu tespit edilmiştir.
+
+Bu sonuçlar, kod kokularının yalnızca tespit edilmesinin yeterli olmadığını, bakım süreçlerinde etki düzeylerinin ve görülme sıklıklarının birlikte değerlendirilmesinin yararlı olabileceğini göstermektedir. Böylece geliştiriciler, sınırlı zaman ve kaynaklarını hangi kod kokularına öncelik vereceklerini belirlerken metrik temelli değerlendirmelerden yararlanabilirler.
+
+Bununla birlikte, araştırmada kullanılan etki puanları istatistiksel korelasyonlara dayanmaktadır. Bu nedenle sonuçlar, kod kokularının yazılım kalitesindeki değişimlere doğrudan neden olduğunu veya belirli bir kod kokusunun giderilmesinin yazılım kalitesini kesin olarak artıracağını kanıtlamamaktadır. Ayrıca araştırmanın yalnızca Java tabanlı açık kaynaklı sistemleri ve iç yazılım metriklerini kapsaması, bulguların farklı yazılım ortamlarına genellenmesini sınırlandırmaktadır.
+
+Gelecekte gerçekleştirilecek çalışmalarda, farklı programlama dilleri ve endüstriyel yazılım projelerinin incelenmesi, yeniden yapılandırma (Refactoring) öncesi ve sonrası kalite göstergelerinin karşılaştırılması ve bakım maliyetlerinin değerlendirmeye dahil edilmesi yararlı olabilir.
+
+Sonuç olarak Rahman ve arkadaşlarının (2025) araştırması, kod kokuları ile yazılım metrikleri arasındaki ilişkilerin geniş ölçekli ampirik veriler üzerinden değerlendirilmesine katkı sağlamaktadır. Çalışma, nesne yönelimli yazılım sistemlerinde kod kalitesinin analiz edilmesi ve bakım faaliyetlerinin daha sistematik biçimde planlanması açısından önemli bir yaklaşım sunmaktadır.
