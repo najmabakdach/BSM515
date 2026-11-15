@@ -6,6 +6,8 @@ Dergi: Software: Practice and Experience
 Yayın Yılı: 2025
 DOI: 10.1002/spe.3405
 
+⸻
+
 1. Makalenin Konusu, Amacı ve Araştırma Soruları
 
 1.1. Makalenin Konusu
@@ -52,7 +54,7 @@ Bu kapsamda kod kokuları üç grupta değerlendirilmektedir:
 * Orta etki düzeyi (Moderate Impact)
 * Düşük etki düzeyi (Low Impact)
 
-Bu sınıflandırma, yazılım bakım ve yeniden düzenleme (Refactoring) süreçlerinde kod kokularının önceliklendirilmesine yardımcı olmayı hedeflemektedir.
+Bu sınıflandırma, yazılım bakım ve yeniden yapılandırma (Refactoring) süreçlerinde kod kokularının önceliklendirilmesine yardımcı olmayı hedeflemektedir.
 
 RQ3: Sık karşılaşılan ve etki düzeyi yüksek kod kokuları hangileridir?
 
@@ -66,14 +68,19 @@ Böylece yazılım bakım faaliyetlerinde önceliklendirme kararlarının daha s
 
 1.4. Araştırmanın Genel Yaklaşımı
 
-Araştırmada öncelikle kod kokuları ile yazılım metrikleri arasındaki ilişkiler incelenmektedir. Daha sonra bu ilişkiler kullanılarak kod kokularının etki düzeyleri belirlenmektedir.
+Araştırmada öncelikle 35 açık kaynaklı Java yazılım sisteminde bulunan 13 farklı kod kokusu ile 25 iç yazılım metriği arasındaki istatistiksel ilişkiler incelenmiştir. Bu ilişkilerin değerlendirilmesinde Spearman sıra korelasyon katsayısı kullanılmıştır.
 
+Elde edilen korelasyon sonuçlarından yararlanılarak kod kokularının etki puanları (Impact Scores) hesaplanmış ve kod kokuları yüksek, orta ve düşük etki düzeylerine göre sınıflandırılmıştır.
+
+Son aşamada, kod kokularının yazılım sistemlerinde görülme sıklıkları analiz edilerek etki düzeyleriyle karşılaştırılmıştır. Böylece yazılım bakım süreçlerinde öncelikli olarak değerlendirilebilecek kod kokularının belirlenmesi amaçlanmıştır.
+
+⸻
 
 2. Araştırma Yöntemi ve Kullanılan Teknolojiler
 
 2.1. Araştırma Yöntemi
 
-İncelenen makalede, kod kokuları ile yazılımın iç kalite metrikleri arasındaki ilişkileri değerlendirmek amacıyla geniş ölçekli ampirik (deneysel) bir araştırma yöntemi kullanılmıştır. Araştırma, açık kaynaklı yazılım sistemlerinden elde edilen verilerin analiz edilmesine dayanmaktadır.
+İncelenen makalede, kod kokuları ile yazılımın iç kalite metrikleri arasındaki ilişkileri değerlendirmek amacıyla geniş ölçekli ampirik bir araştırma yaklaşımı benimsenmiştir. Araştırma, açık kaynaklı yazılım sistemlerinden elde edilen verilerin analiz edilmesine dayanmaktadır.
 
 Çalışma kapsamında Java programlama diliyle geliştirilmiş 35 açık kaynaklı yazılım sistemi incelenmiştir. Bu sistemlerde 13 farklı kod kokusu türü tespit edilmiş ve 25 iç yazılım metriği kullanılarak kod kokuları ile yazılımın yapısal özellikleri arasındaki ilişkiler araştırılmıştır.
 
@@ -125,9 +132,11 @@ Araştırmada kod kokularının yazılımın iç kalite özellikleriyle ilişkil
 
 İç kalite metrikleri, yazılımın kaynak kodu üzerinden doğrudan ölçülebilen özellikleri ifade etmektedir. Çalışmada dış kalite özellikleri araştırma kapsamı dışında bırakılmıştır.
 
-Seçilen metrikler; karmaşıklık (Complexity), bağımlılık (Coupling), uyum veya bütünlük (Cohesion), soyutlama (Abstraction), kapsülleme (Encapsulation) ve dokümantasyon (Documentation) gibi yazılım tasarımının farklı boyutlarını kapsamaktadır.
+Seçilen metrikler; karmaşıklık (Complexity), bağımlılık (Coupling), uyum (Cohesion), soyutlama (Abstraction), kapsülleme (Encapsulation) ve dokümantasyon (Documentation) gibi yazılım tasarımının farklı boyutlarını kapsamaktadır.
 
-Araştırmada kullanılan bazı önemli metrikler aşağıda açıklanmıştır:
+Araştırmada kullanılan bazı önemli metrikler Tablo 1’de açıklanmıştır.
+
+Tablo 1. Araştırmada Kullanılan Bazı Yazılım Metrikleri
 
 Metrik	Açıklama
 LOC (Lines of Code)	Kaynak kod satırlarının sayısını ölçer.
@@ -168,43 +177,41 @@ Araştırmacılar, belirlenen Java dosyalarını ilgili kod kokusu klasörlerine
 
 Oluşturulan klasörler ve dosya adları manuel olarak da kontrol edilmiş; eksik dosyalar ve aynı ada sahip dosyalardan kaynaklanan sorunlar giderilmiştir.
 
-Sonuç olarak, oluşturulan veri kümesinde toplam 74.253 kod kokusu dosyası kaydı bulunmaktadır. Veri kümesinin boyutu yaklaşık 1,35 GB olarak belirtilmiştir.
+Sonuç olarak, oluşturulan veri kümesinde toplam 74.253 kod kokularıyla ilişkili dosya kaydı bulunmaktadır. Veri kümesinin boyutu yaklaşık 1,35 GB olarak belirtilmiştir.
 
 Bir Java dosyası birden fazla kod kokusu içerebildiğinden, aynı dosya farklı kod kokusu klasörlerinde tekrar bulunabilmektedir. Bu nedenle veri kümesindeki toplam dosya sayısı, benzersiz Java dosyalarının sayısını ifade etmemektedir.
 
 2.6. Veri Analizi ve İstatistiksel Yöntemler
 
-Araştırmada kod kokuları ile yazılım metrikleri arasındaki ilişkileri belirlemek amacıyla Spearman sıra korelasyon katsayısı (Spearman’s Rank Correlation Coefficient) kullanılmıştır.
+Araştırmada, kod kokuları ile iç yazılım metrikleri arasındaki istatistiksel ilişkileri incelemek amacıyla Spearman sıra korelasyon katsayısı (Spearman’s Rank Correlation Coefficient) kullanılmıştır.
 
-Bu yöntem, değişkenler arasındaki ilişkinin yönünü ve gücünü değerlendirmek için tercih edilmiştir. Araştırmacılar, verilerin normal dağılım göstermesinin zorunlu olmaması nedeniyle parametrik olmayan bu yöntemi kullanmışlardır.
+Spearman korelasyonu, iki değişken arasındaki monoton ilişkinin yönünü ve gücünü sıralamalar üzerinden değerlendiren parametrik olmayan bir istatistiksel yöntemdir. Bu yöntem, değişkenlerin normal dağılım göstermesini zorunlu kılmamaktadır.
 
-Analiz kapsamında her kod kokusunun 35 sistemdeki görülme sıklığı hesaplanmış, ardından ilgili kod kokusunu içeren dosyalardan elde edilen yazılım metriği değerleri sistem düzeyinde birleştirilmiştir.
+Analiz kapsamında, öncelikle her kod kokusunun 35 yazılım sistemindeki görülme sıklığı belirlenmiştir. Ardından ilgili kod kokularını içeren dosyalardan elde edilen yazılım metriği değerleri sistem düzeyinde birleştirilmiştir.
 
-Böylece 13 kod kokusu ile 25 yazılım metriği arasında toplam 325 korelasyon katsayısı hesaplanmıştır.
+Böylece 13 farklı kod kokusu ile 25 iç yazılım metriği arasında toplam 325 korelasyon katsayısı hesaplanmıştır.
 
-Araştırmacılar, korelasyon katsayılarının karelerini kullanarak her kod kokusu ve yazılım metriği için ortalama ilişki gücünü temsil eden etki puanları (Impact Scores) oluşturmuşlardır.
+Araştırmacılar, elde edilen korelasyon katsayılarının karelerinden yararlanarak kod kokuları ve yazılım metrikleri için etki puanları (Impact Scores) oluşturmuşlardır. Korelasyon katsayısının karesinin alınması, ilişkinin pozitif veya negatif yönünden bağımsız olarak değerlendirilmesine olanak sağlamaktadır.
 
-Bu puanlara göre kod kokuları ve yazılım metrikleri yüksek (High), orta (Moderate) ve düşük (Low) etki düzeylerinde sınıflandırılmıştır.
+Hesaplanan etki puanları kullanılarak kod kokuları ve yazılım metrikleri yüksek (High), orta (Moderate) ve düşük (Low) etki düzeylerinde sınıflandırılmıştır. Bu sınıflandırmada istatistiksel çeyrekliklerden (Quartiles) yararlanılmıştır.
 
-Sınıflandırma işleminde istatistiksel çeyreklikler (Quartiles) kullanılmıştır. Ayrıca etki düzeyleri arasındaki farkları değerlendirmek amacıyla tek yönlü T-testi (One-tailed T-test) uygulanmıştır.
+Araştırmada ayrıca etki düzeyleri arasındaki farkların istatistiksel olarak değerlendirilmesi amacıyla tek kuyruklu t-testi (One-tailed t-test) kullanıldığı belirtilmektedir.
 
-Araştırmanın son aşamasında ise kod kokularının 35 sistemdeki ortalama görülme sıklıkları hesaplanmış ve etki düzeyleriyle karşılaştırılmıştır.
+Son aşamada, kod kokularının incelenen sistemlerdeki ortalama görülme sıklıkları hesaplanmış ve etki puanlarıyla karşılaştırılmıştır. Böylece hem yüksek etki puanına sahip hem de sık karşılaşılan kod kokularının belirlenmesi amaçlanmıştır.
 
-Bu karşılaştırma sayesinde, hem yüksek ilişki gücüne sahip hem de sistemlerde sık karşılaşılan kod kokularının belirlenmesi amaçlanmıştır.
+Burada kullanılan Impact Score değerleri, kod kokuları ile yazılım metrikleri arasındaki istatistiksel ilişkilerden türetilmektedir. Bu nedenle söz konusu puanlar, kod kokularının yazılım kalitesine doğrudan neden olduğu değişimleri veya kalite kaybı yüzdelerini ifade etmemektedir.
 
 2.7. Araştırma Yönteminin Genel Değerlendirmesi
 
-Araştırmanın yöntemsel açıdan dikkat çeken yönü, kod kokularının yalnızca tespit edilmesiyle sınırlı kalmaması ve bu kokuların yazılımın iç kalite metrikleriyle ilişkilerinin istatistiksel olarak değerlendirilmesidir.
+Araştırmanın yöntemsel açıdan öne çıkan yönü, kod kokularının yalnızca tespit edilmesiyle sınırlı kalmayıp bu kokuların iç yazılım metrikleriyle ilişkilerinin geniş ölçekli veriler üzerinden istatistiksel olarak değerlendirilmesidir.
 
-DÉCOR ve Understand gibi mevcut analiz araçlarının kullanılması, veri toplama sürecinin sistematik biçimde yürütülmesini sağlamıştır. Python ve Bash betikleri ise büyük miktardaki dosyanın düzenlenmesini ve veri kümesinin oluşturulmasını kolaylaştırmıştır.
+DÉCOR ve Understand araçlarının kullanılması, kod kokularının tespit edilmesini ve yazılım metriklerinin hesaplanmasını sistematik hâle getirmiştir. Python ve Bash betikleri ise veri kümesinin oluşturulması ve dosyaların düzenlenmesi süreçlerini kolaylaştırmıştır.
 
-Bununla birlikte, kullanılan korelasyon analizi değişkenler arasındaki istatistiksel ilişkileri ortaya koymaktadır. Bu nedenle elde edilen sonuçlar, kod kokularının yazılım kalitesindeki değişimlerin doğrudan nedeni olduğunu kanıtlamamaktadır.
+Spearman korelasyon analizi ve korelasyon temelli etki puanları sayesinde kod kokuları karşılaştırılmış, görülme sıklıklarının da değerlendirmeye dahil edilmesiyle bakım süreçlerinde önceliklendirmeyi destekleyen bir yaklaşım sunulmuştur.
 
-Ayrıca araştırmanın yalnızca Java ile geliştirilmiş açık kaynaklı sistemlere ve iç kalite metriklerine odaklanması, sonuçların farklı programlama dillerine ve yazılım kalitesinin diğer boyutlarına genellenmesi açısından dikkate alınması gereken bir sınırlılıktır.
+Bu yöntem, kod kokularının değerlendirilmesinde ölçülebilir verilerden yararlanılması açısından önem taşımaktadır. Bununla birlikte, elde edilen bulguların yorumlanmasında araştırmanın kapsamı ve istatistiksel yöntemin sınırları dikkate alınmalıdır.
 
-Son aşamada ise kod kokularının görülme sıklıkları değerlendirmeye dahil edilerek bakım süreçlerinde öncelikli olabilecek kod kokuları araştırılmaktadır.
-
-Bu yönüyle makale, yalnızca kod kokularının tespit edilmesine değil, bu kokuların yazılımın iç kalite özellikleriyle ilişkilerinin değerlendirilmesine de odaklanmaktadır.
+⸻
 
 3. Bulguların ve Sonuçların Değerlendirilmesi
 
@@ -232,7 +239,9 @@ Bununla birlikte, korelasyon katsayılarının kod kokuları ile yazılım metri
 
 İkinci araştırma sorusu kapsamında, kod kokularının yazılım metrikleriyle olan ilişkileri kullanılarak etki puanları hesaplanmış ve kod kokuları yüksek, orta ve düşük olmak üzere üç grupta sınıflandırılmıştır.
 
-Araştırmanın sonuçlarına göre yüksek etki düzeyine sahip beş kod kokusu belirlenmiştir:
+Araştırmanın sonuçlarına göre yüksek etki düzeyine sahip beş kod kokusu belirlenmiştir.
+
+Tablo 2. Yüksek Etki Düzeyine Sahip Kod Kokuları
 
 Kod Kokusu	Etki Puanı	Etki Düzeyi
 Long Method	0,86	High
@@ -253,7 +262,7 @@ Araştırmacılar, elde edilen sınıflandırmayı dört deneyimli yazılım gel
 
 Karşılaştırma sonucunda, özellikle yüksek ve düşük etki düzeyindeki kod kokularında araştırma bulguları ile uzman görüşleri arasında belirli düzeyde benzerlikler bulunduğu görülmüştür. Buna karşılık orta etki düzeyindeki kod kokularının değerlendirilmesinde daha fazla farklılık ortaya çıkmıştır.
 
-Bu durum, geliştiricilerin kod kokularının önemini yalnızca kişisel deneyimlerine dayanarak değerlendirmelerinin her zaman yeterli olmayabileceğini göstermektedir.
+Bu bulgu, geliştirici değerlendirmelerinin metrik temelli analizlerle desteklenmesinin yararlı olabileceğini düşündürmektedir.
 
 Araştırmanın bu bölümündeki temel katkısı, kod kokularının önceliklendirilmesi için yazılım metriklerine dayalı sayısal bir değerlendirme yaklaşımı sunmasıdır.
 
@@ -263,7 +272,9 @@ Araştırmanın bu bölümündeki temel katkısı, kod kokularının önceliklen
 
 Araştırmacılar, 35 yazılım sisteminde her kod kokusunun ortalama görülme sıklığını hesaplamışlardır.
 
-Elde edilen sonuçlara göre en sık karşılaşılan dört kod kokusu şunlardır:
+Elde edilen sonuçlara göre en sık karşılaşılan dört kod kokusu Tablo 3’te gösterilmiştir.
+
+Tablo 3. En Sık Görülen Kod Kokuları
 
 Kod Kokusu	Proje Başına Ortalama Görülme Sıklığı
 Long Method	733,06
@@ -283,34 +294,87 @@ Bu bulgular, kod kokularının etki düzeyleri ile görülme sıklıkları aras�
 
 Araştırmacılar, bakım süreçlerinde yalnızca bir kod kokusunun ne kadar sık görüldüğüne değil, yazılım metrikleriyle ne düzeyde ilişkili olduğuna da dikkat edilmesi gerektiğini vurgulamaktadır.
 
-Bu nedenle Long Method, Complex Class, Large Class ve Long Parameter List kod kokuları, hem yüksek etki düzeyleri hem de yüksek görülme sıklıkları nedeniyle yeniden yapılandırma (Refactoring) çalışmalarında öncelikli olarak değerlendirilebilecek kod kokuları arasında yer almaktadır.
+Bu nedenle Long Method, Complex Class, Large Class ve Long Parameter List kod kokuları, hem yüksek etki düzeyleri hem de yüksek görülme sıklıkları nedeniyle yeniden yapılandırma çalışmalarında öncelikli olarak değerlendirilebilecek kod kokuları arasında yer almaktadır.
 
 3.4. Araştırmanın Genel Sonuçları
 
-Araştırma sonucunda, kod kokularının yazılımın iç kalite metrikleriyle farklı düzeylerde ilişkili olduğu ortaya konulmuştur.
+Araştırma bulguları, kod kokularının iç yazılım metrikleriyle farklı düzeylerde ilişkili olduğunu göstermektedir. Özellikle yazılımın büyüklüğünü ve yapısal özelliklerini temsil eden metriklerin, belirli kod kokularıyla daha güçlü ilişkiler gösterdiği belirlenmiştir.
 
-Özellikle yazılımın büyüklüğüyle ilişkili metriklerin ve metot veya sınıf büyüklüğünü temsil eden kod kokularının araştırma bulgularında öne çıktığı görülmüştür.
+Etki puanlarına göre Long Method, Anti Singleton, Complex Class, Large Class ve Long Parameter List yüksek etki düzeyine sahip kod kokuları olarak sınıflandırılmıştır. Bunlar arasında Long Method, 0,86 etki puanıyla ilk sırada yer almaktadır.
 
-Çalışmanın önemli sonuçlarından biri, bütün kod kokularının aynı öncelikle ele alınmasının gerekli olmadığını göstermesidir.
+Kod kokularının görülme sıklıkları değerlendirildiğinde ise Long Method, Complex Class, Long Parameter List ve Large Class türlerinin hem yüksek etki düzeyine sahip olduğu hem de incelenen sistemlerde sık karşılaşıldığı görülmüştür.
 
-Kod kokularının etki düzeyleri ve görülme sıklıkları birlikte değerlendirildiğinde, bakım süreçlerinde daha sistematik önceliklendirme kararları verilebileceği anlaşılmaktadır.
+Bu bulgular, kod kokularının yalnızca görülme sıklıklarına göre değil, yazılım metrikleriyle ilişkileri de dikkate alınarak değerlendirilmesinin bakım süreçlerinde önceliklendirme kararlarını destekleyebileceğini göstermektedir.
 
-Araştırma ayrıca geliştiricilerin kod kokularına ilişkin değerlendirmelerinin kişisel deneyimlere göre değişebildiğini göstermiştir. Bu nedenle yazılım metriklerine dayalı değerlendirmelerin, geliştiricilerin kararlarını destekleyebilecek nesnel veriler sağlayabileceği belirtilmektedir.
+⸻
 
-Bununla birlikte, çalışmada kullanılan etki puanları korelasyon analizine dayanmaktadır. Dolayısıyla araştırma sonuçları, kod kokularının yazılım kalitesindeki değişimlere doğrudan neden olduğunu veya belirli bir kod kokusunun giderilmesinin yazılım kalitesini kesin olarak artıracağını kanıtlamamaktadır.
+4. Literatür Taraması ve Önceki Çalışmalar
 
-Ayrıca araştırmanın Java ile geliştirilmiş açık kaynaklı sistemlerle ve iç yazılım metrikleriyle sınırlı olması, sonuçların farklı yazılım ortamlarına genellenmesinde dikkate alınmalıdır.
+4.1. Fowler (1999) – Refactoring: Improving the Design of Existing Code
 
-Genel olarak çalışma, kod kokularının yalnızca tespit edilmesine odaklanmak yerine, yazılım metrikleriyle ilişkilerinin analiz edilerek önceliklendirilmesine yönelik bir yaklaşım sunmaktadır.
+Martin Fowler (1999), Refactoring: Improving the Design of Existing Code adlı kitabının üçüncü bölümünde, yazılım tasarımındaki olası sorunlara işaret eden 22 farklı kod kokusunu (Code Smell) ele almıştır.
 
-Bu yaklaşımın, yazılım bakım faaliyetlerinin planlanmasına ve gelecekte etki düzeyine dayalı otomatik Refactoring araçlarının geliştirilmesine katkı sağlayabileceği değerlendirilmektedir.
+Bu kod kokuları arasında Duplicated Code, Long Method, Large Class, Long Parameter List, Feature Envy, Lazy Class ve Refused Bequest gibi örnekler bulunmaktadır. Bu yapılar, kodun anlaşılabilirliğini ve bakımını zorlaştırabilecek tasarım sorunları olarak değerlendirilmiştir.
 
+Fowler, kod kokularının doğrudan bir yazılım hatası olmadığını ve her durumda yeniden yapılandırma gerektirmediğini vurgulamıştır. Bununla birlikte, uygun durumlarda Extract Method, Extract Class ve Move Method gibi yeniden yapılandırma teknikleriyle kod yapısının iyileştirilebileceğini açıklamıştır.
 
-4. Makalenin Eleştirel Değerlendirilmesi
+Bu çalışma, kod kokularının tanımlanması ve değerlendirilmesi açısından önemli bir kavramsal temel sunmaktadır. Ancak kod kokularının yazılım metrikleri üzerindeki etkilerini istatistiksel yöntemlerle ölçmemektedir.
+
+Fowler’ın yaklaşımı kod kokularının tespit edilmesine ve giderilmesine yönelik tasarım ilkelerine odaklanırken, Rahman ve arkadaşlarının (2025) çalışması kod kokuları ile yazılım metrikleri arasındaki ilişkileri ampirik ve istatistiksel yöntemlerle incelemektedir. Bu nedenle Fowler’ın kitabı, incelenen makalenin teorik arka planını oluşturan temel kaynaklardan biridir.
+
+4.2. Palomba ve Arkadaşları (2018) – Kod Kokularının Bakım Yapılabilirliğine Etkisi
+
+Palomba ve arkadaşları (2018), On the Diffuseness and the Impact on Maintainability of Code Smells: A Large Scale Empirical Investigation adlı çalışmalarında, kod kokularının yazılım sistemlerindeki yaygınlığını ve bakım yapılabilirliği ile ilişkisini araştırmıştır.
+
+Çalışmada, 30 açık kaynaklı Java projesinin 395 sürümü incelenmiş ve 13 farklı kod kokusuna ait, manuel olarak doğrulanmış 17.350 örnek analiz edilmiştir. Araştırmada kod kokularının değişime yatkınlık (Change-Proneness) ve hata eğilimi (Fault-Proneness) ile ilişkileri değerlendirilmiştir.
+
+Elde edilen sonuçlar, uzun veya karmaşık kod yapılarıyla ilişkili kod kokularının yaygın olduğunu göstermiştir. Ayrıca kod kokusu içeren sınıfların, kod kokusu içermeyen sınıflara kıyasla daha yüksek değişime yatkınlık ve hata eğilimi gösterdiği belirlenmiştir.
+
+Bununla birlikte, kod kokularının kaldırılmasının değişime yatkınlık açısından olumlu sonuçlarla ilişkili olabildiği, ancak hata eğiliminde her zaman belirgin bir azalma sağlamadığı görülmüştür. Bu nedenle kod kokularının varlığı ile yazılım hataları arasında doğrudan bir neden-sonuç ilişkisi kurulurken dikkatli olunmalıdır.
+
+Palomba ve arkadaşları (2018), kod kokularının yazılım bakım süreçleriyle ilişkisini değişiklikler ve hatalar üzerinden incelerken, Rahman ve arkadaşları (2025) kod kokuları ile iç yazılım metrikleri arasındaki istatistiksel ilişkileri analiz etmiştir.
+
+Dolayısıyla bu iki çalışma, kod kokularının yazılım kalitesiyle ilişkilerini farklı ölçütlerle ele alarak birbirini tamamlamaktadır.
+
+4.3. Kaur (2020) – Kod Kokularının Yazılım Kalitesi Üzerindeki Etkilerine Yönelik Sistematik Literatür İncelemesi
+
+Kaur (2020), kod kokuları (Code Smells) ile yazılım kalite özellikleri arasındaki ilişkileri inceleyen deneysel araştırmaları sistematik literatür taraması (Systematic Literature Review – SLR) yöntemiyle değerlendirmiştir. Çalışmada, Mart 2018’e kadar yayımlanan araştırmalar altı dijital veri tabanında taranmış ve belirlenen 4.363 çalışma arasından seçim kriterlerini karşılayan 74 birincil çalışma incelenmiştir.
+
+Araştırma kapsamında 93 farklı kod kokusu türü, 22 yazılım kalite özelliği ve 223 kalite metriği belirlenmiştir. İncelenen çalışmaların özellikle güvenilirlik (Reliability), değiştirilebilirlik (Changeability) ve bakım yapılabilirlik (Maintainability) özelliklerine odaklandığı görülmüştür.
+
+Araştırmanın bulguları, kod kokularının yazılım kalitesiyle ilişkilerinin her durumda aynı olmadığını göstermiştir. God Class ve Duplicate Code türlerinin bazı kalite özellikleriyle ağırlıklı olarak olumsuz ilişkiler gösterdiği, Long Method ve Long Parameter List türlerine ilişkin sonuçların ise çoğunlukla tutarsız olduğu belirtilmiştir.
+
+Çalışmada ayrıca araştırmaların büyük ölçüde Java tabanlı açık kaynaklı projeler üzerinde gerçekleştirilmesinin, sonuçların farklı programlama dillerine ve endüstriyel sistemlere genellenmesini sınırlandırabileceği vurgulanmıştır.
+
+Kaur (2020), araştırmanın geçerliliğini yapı geçerliliği (Construct Validity), iç geçerlilik (Internal Validity), dış geçerlilik (External Validity) ve güvenilirlik (Reliability) açısından değerlendirmiştir. Çalışma seçimi ve veri çıkarma süreçlerinde bağımsız kontroller gerçekleştirilmiş, ancak arama yöntemleri ve incelenen yayınların kapsamından kaynaklanabilecek sınırlılıklar da belirtilmiştir.
+
+Sonuç olarak Kaur (2020), kod kokuları ile yazılım kalitesi arasındaki ilişkilerin karmaşık olduğunu ve mevcut deneysel bulguların her zaman tutarlı sonuçlar üretmediğini ortaya koymuştur. Bu çalışma, Rahman ve arkadaşlarının (2025) kod kokuları ile iç yazılım metrikleri arasındaki ilişkileri inceleyen araştırmasına önemli bir literatür temeli sağlamaktadır.
+
+4.4. Verma ve Arkadaşları (2023) – Kod Kokularının Önceliklendirilmesine Yönelik Sistematik Literatür İncelemesi
+
+Verma ve arkadaşları (2023), Code Smell Prioritization in Object-Oriented Software Systems: A Systematic Literature Review başlıklı çalışmalarında, nesne yönelimli yazılım sistemlerinde kod kokularının önceliklendirilmesine yönelik yöntemleri sistematik olarak incelemiştir.
+
+Araştırmada, Mayıs 2011 ile Mayıs 2022 arasında yayımlanan 39 birincil çalışma değerlendirilmiş; kullanılan önceliklendirme teknikleri, kod kokusu türleri, değerlendirme faktörleri, sıralama formülleri, veri kümeleri ve tespit araçları karşılaştırılmıştır.
+
+Çalışmada kod kokularını önceliklendirme yaklaşımları manuel, yarı otomatik ve tam otomatik olmak üzere üç grupta ele alınmıştır. Manuel yaklaşımların geliştirici deneyimine ve uzman değerlendirmesine dayanması nedeniyle öznel sonuçlar üretebildiği belirtilmiştir.
+
+Ayrıca incelenen çalışmalarda God Class ve Feature Envy kod kokularının sıklıkla ele alındığı, önceliklendirme sürecinde ise bileşenlerin kararlılığı ve sınıflar arasındaki bağımlılık (Coupling) gibi faktörlerin önemli bir yer tuttuğu görülmüştür.
+
+Araştırmanın bulguları, kod kokularının önceliklendirilmesinde kullanılan sıralama formüllerinin sınırlı olduğunu, değerlendirme süreçlerinin büyük ölçüde manuel yöntemlere dayandığını ve çalışmaların çoğunlukla Java tabanlı projeler üzerinde gerçekleştirildiğini ortaya koymuştur.
+
+Bu doğrultuda araştırmacılar, daha kapsamlı yazılım metriklerinin kullanılması, otomatik değerlendirme yöntemlerinin geliştirilmesi ve farklı programlama dilleri üzerinde deneysel çalışmaların artırılması gerektiğini vurgulamıştır.
+
+Verma ve arkadaşlarının çalışması, kod kokularının yalnızca tespit edilmesinin yeterli olmadığını, bakım ve yeniden yapılandırma süreçlerinde hangi kod kokularının öncelikli olarak ele alınacağının da belirlenmesi gerektiğini göstermektedir.
+
+Bu yönüyle çalışma, kod kokuları ile yazılım metrikleri arasındaki ilişkilerin analiz edilmesinin, yazılım bakım kararlarını desteklemek açısından taşıdığı önemi ortaya koyan tamamlayıcı bir literatür kaynağı niteliğindedir.
+
+⸻
+
+5. Makalenin Eleştirel Değerlendirilmesi
 
 Bu bölümde, Rahman ve arkadaşlarının (2025) gerçekleştirdiği araştırma; güçlü yönleri, yöntemsel sınırlılıkları, önceki çalışmalarla ilişkisi ve yazılım mühendisliği alanına sağladığı katkılar açısından eleştirel olarak değerlendirilmektedir.
 
-4.1. Araştırmanın Güçlü Yönleri
+5.1. Araştırmanın Güçlü Yönleri
 
 Araştırmanın en önemli güçlü yönlerinden biri, geniş kapsamlı bir veri kümesi üzerinde gerçekleştirilmiş olmasıdır. Çalışmada Apache ve Eclipse ekosistemlerinden seçilen 35 açık kaynaklı Java yazılım sistemi incelenmiştir. Bu sistemlerde 13 farklı kod kokusu ile 25 iç yazılım metriği arasındaki ilişkilerin analiz edilmesi, araştırmanın kapsamını genişletmiştir.
 
@@ -322,7 +386,7 @@ Araştırmada Spearman sıra korelasyon katsayısının kullanılması, değişk
 
 Son olarak, kod kokularının etki düzeyleri ile görülme sıklıklarının birlikte değerlendirilmesi, araştırmanın uygulamaya yönelik önemini artırmaktadır. Bu yaklaşım, yazılım bakım faaliyetlerinde önceliklendirme kararlarının daha sistematik biçimde verilmesine yardımcı olabilecek bir temel sunmaktadır.
 
-4.2. Araştırmanın Sınırlılıkları
+5.2. Araştırmanın Sınırlılıkları
 
 Araştırmanın önemli sınırlılıklarından biri, yalnızca Java programlama diliyle geliştirilmiş açık kaynaklı yazılım sistemlerinin incelenmiş olmasıdır.
 
@@ -342,29 +406,25 @@ Ayrıca kod kokularının tespit edilmesinde otomatik analiz araçlarının kull
 
 Bu sınırlılıklar, araştırmanın sonuçlarını geçersiz kılmamakla birlikte, bulguların yorumlanmasında ve farklı yazılım ortamlarına uygulanmasında dikkate alınmalıdır.
 
-4.3. Bulguların Önceki Çalışmalarla Karşılaştırılması
+5.3. Bulguların Önceki Çalışmalarla Karşılaştırılması
 
-Rahman ve arkadaşlarının (2025) çalışması, kod kokularının yazılım kalitesi üzerindeki etkilerini inceleyen önceki araştırmalarla ilişkili olarak değerlendirilebilir.
+Rahman ve arkadaşlarının (2025) çalışması, kod kokularının yazılım kalitesiyle ilişkilerini inceleyen önceki araştırmalarla karşılaştırılarak değerlendirilebilir.
 
 Bu kapsamda Palomba ve arkadaşlarının (2018) gerçekleştirdiği geniş ölçekli ampirik araştırma önemli bir karşılaştırma noktası oluşturmaktadır.
 
-Palomba ve arkadaşları, kod kokularının yazılımın bakım kolaylığı ve değişime veya hataya yatkınlığı gibi dış kalite özellikleriyle ilişkilerini incelemişlerdir.
+Palomba ve arkadaşları, kod kokularının yazılımın bakım yapılabilirliği, değişime yatkınlığı ve hata eğilimi gibi dış kalite özellikleriyle ilişkilerini incelemişlerdir.
 
 Rahman ve arkadaşlarının çalışması ise kod kokuları ile iç yazılım metrikleri arasındaki ilişkilere odaklanmaktadır.
 
 Her iki araştırmada da özellikle yazılımın büyüklüğü ve karmaşıklığıyla ilişkili bazı kod kokularının önemli olduğu görülmektedir.
 
-Örneğin Long Method, Complex Class ve Large Class gibi kod kokuları, Rahman ve arkadaşlarının araştırmasında yüksek etki düzeyinde sınıflandırılmıştır. Bu sonuç, Palomba ve arkadaşlarının büyüklük ve karmaşıklıkla ilişkili kod kokularına yönelik bazı bulgularıyla benzerlik göstermektedir.
+Örneğin Long Method, Complex Class ve Large Class gibi kod kokuları, Rahman ve arkadaşlarının araştırmasında yüksek etki düzeyinde sınıflandırılmıştır. Bu sonuç, Palomba ve arkadaşlarının uzun veya karmaşık kod yapılarıyla ilişkili kod kokularına yönelik bazı bulgularıyla benzerlik göstermektedir.
 
-Bununla birlikte, iki araştırmanın sonuçları tamamen aynı değildir.
-
-Özellikle Long Parameter List kod kokusu, Rahman ve arkadaşlarının çalışmasında yüksek etki düzeyinde değerlendirilirken, Palomba ve arkadaşlarının araştırmasında daha sınırlı bir etkiyle ilişkilendirilmiştir.
-
-Bu farklılık, araştırmalarda kullanılan kalite göstergelerinin ve değerlendirme yöntemlerinin sonuçlar üzerinde etkili olabileceğini düşündürmektedir.
+Bununla birlikte, iki araştırmanın sonuçları tamamen aynı değildir. Araştırmalarda kullanılan kalite göstergelerinin, veri kümelerinin ve değerlendirme yöntemlerinin farklı olması, kod kokularına ilişkin bulguların da farklılaşmasına neden olabilmektedir.
 
 Dolayısıyla kod kokularının önemini değerlendirirken yalnızca tek bir araştırmanın sonuçlarına dayanmak yerine, farklı kalite boyutlarını inceleyen çalışmaların birlikte ele alınması yararlı olacaktır.
 
-4.4. Kişisel Akademik Değerlendirme
+5.4. Kişisel Akademik Değerlendirme
 
 Bu çalışmanın yazılım mühendisliği açısından önemli katkısı, kod kokularının değerlendirilmesinde yalnızca varlıklarının veya görülme sıklıklarının dikkate alınmasının yeterli olmayabileceğini göstermesidir.
 
@@ -384,56 +444,7 @@ Sonuç olarak Rahman ve arkadaşlarının (2025) çalışması, kod kokularını
 
 Ancak bu yaklaşımın doğrudan yazılım kalitesini iyileştirdiğini göstermek için, yeniden yapılandırma süreçlerinin gerçek sonuçlarını inceleyen ek ampirik araştırmalara ihtiyaç bulunmaktadır.
 
-5. Literatür Taraması ve Önceki Çalışmalar
-
-5.1. Fowler (1999) – Refactoring: Improving the Design of Existing Code
-
-Martin Fowler (1999), Refactoring: Improving the Design of Existing Code adlı kitabının üçüncü bölümünde, yazılım tasarımındaki olası sorunlara işaret eden 22 farklı kod kokusunu (Code Smell) ele almıştır.
-
-Bu kod kokuları arasında Duplicated Code, Long Method, Large Class, Long Parameter List, Feature Envy, Lazy Class ve Refused Bequest gibi örnekler bulunmaktadır. Bu yapılar, kodun anlaşılabilirliğini ve bakımını zorlaştırabilecek tasarım sorunları olarak değerlendirilmiştir.
-
-Fowler, kod kokularının doğrudan bir yazılım hatası olmadığını ve her durumda yeniden düzenleme gerektirmediğini vurgulamıştır. Bununla birlikte, uygun durumlarda Extract Method, Extract Class ve Move Method gibi yeniden düzenleme (Refactoring) teknikleriyle kod yapısının iyileştirilebileceğini açıklamıştır.
-
-Bu çalışma, kod kokularının tanımlanması ve değerlendirilmesi açısından önemli bir kavramsal temel sunmaktadır. Ancak kod kokularının yazılım metrikleri üzerindeki etkilerini istatistiksel yöntemlerle ölçmemektedir.
-
-Fowler’ın yaklaşımı kod kokularının tespit edilmesine ve giderilmesine yönelik tasarım ilkelerine odaklanırken, Rahman ve arkadaşlarının (2025) çalışması kod kokuları ile yazılım metrikleri arasındaki ilişkileri deneysel ve istatistiksel yöntemlerle incelemektedir. Bu nedenle Fowler’ın kitabı, incelenen makalenin teorik arka planını oluşturan temel kaynaklardan biridir.
-
-5.2. Palomba ve Arkadaşları (2018) – Kod Kokularının Bakım Yapılabilirliğine Etkisi
-
-Palomba ve arkadaşları (2018), On the Diffuseness and the Impact on Maintainability of Code Smells: A Large Scale Empirical Investigation adlı çalışmalarında, kod kokularının yazılım sistemlerindeki yaygınlığını ve bakım yapılabilirliği ile ilişkisini araştırmıştır.
-
-Çalışmada, 30 açık kaynaklı Java projesinin 395 sürümü incelenmiş ve 13 farklı kod kokusuna ait, manuel olarak doğrulanmış 17.350 örnek analiz edilmiştir. Araştırmada kod kokularının değişime yatkınlık (Change-Proneness) ve hata eğilimi (Fault-Proneness) ile ilişkileri değerlendirilmiştir.
-
-Elde edilen sonuçlar, Long Method ve Spaghetti Code gibi kod kokularının yaygın olduğunu göstermiştir. Ayrıca kod kokusu içeren sınıfların, kod kokusu içermeyen sınıflara kıyasla istatistiksel olarak anlamlı düzeyde daha yüksek değişime yatkınlık ve hata eğilimi gösterdiği belirlenmiştir.
-
-Bununla birlikte, kod kokularının kaldırılmasının değişime yatkınlık açısından olumlu sonuçlarla ilişkili olabildiği, ancak hata eğiliminde her zaman belirgin bir azalma sağlamadığı görülmüştür. Bu nedenle araştırmacılar, kod kokularının varlığı ile yazılım hataları arasında doğrudan bir neden-sonuç ilişkisi kurulamayacağını vurgulamıştır.
-
-Palomba ve arkadaşları (2018), kod kokularının yazılım bakım süreçleriyle ilişkisini değişiklikler ve hatalar üzerinden incelerken, Rahman ve arkadaşları (2025) kod kokuları ile iç yazılım metrikleri arasındaki istatistiksel ilişkileri analiz etmiştir. Dolayısıyla bu iki çalışma, kod kokularının yazılım kalitesi üzerindeki etkilerini farklı ölçütlerle ele alarak birbirini tamamlamaktadır.
-
-
-5.3. Kaur (2020) – Kod Kokularının Yazılım Kalitesi Üzerindeki Etkilerine Yönelik Sistematik Literatür İncelemesi
-
-Kaur (2020), kod kokuları (Code Smells) ile yazılım kalite özellikleri arasındaki ilişkiyi inceleyen deneysel araştırmaları sistematik bir literatür taraması (Systematic Literature Review – SLR) yöntemiyle değerlendirmiştir. Çalışmada, Mart 2018’e kadar yayımlanan araştırmalar altı dijital veri tabanında taranmış ve başlangıçta belirlenen 4.363 çalışma arasından seçim kriterlerini karşılayan 74 birincil çalışma ayrıntılı olarak incelenmiştir.
-
-Araştırma kapsamında 93 farklı kod kokusu türü, 22 yazılım kalite özelliği ve 223 kalite metriği belirlenmiştir. İncelenen çalışmaların özellikle güvenilirlik (Reliability), değiştirilebilirlik (Changeability) ve bakım yapılabilirlik (Maintainability) özelliklerine odaklandığı görülmüştür. Bununla birlikte, kullanılan veri kümelerinin büyük ölçüde Java tabanlı ve açık kaynaklı projelerden oluşması, elde edilen sonuçların farklı programlama dillerine ve endüstriyel sistemlere genellenmesini sınırlandırabilecek bir unsur olarak değerlendirilmiştir.
-
-Araştırmanın bulguları, kod kokularının yazılım kalitesi üzerindeki etkilerinin her durumda aynı olmadığını göstermektedir. God Class ve Duplicate Code türlerinin bazı kalite özellikleri üzerinde ağırlıklı olarak olumsuz etkilerle ilişkilendirildiği, Long Method ve Long Parameter List türlerine ilişkin sonuçların ise çoğunlukla tutarsız olduğu belirtilmiştir. Ayrıca bazı çalışmalarda Data Class için olumlu sonuçlar raporlanmıştır. Bu farklılıklar, kod kokularının etkilerinin yalnızca türlerine göre değil, incelenen kalite özelliğine ve kullanılan veri kümelerine göre de değerlendirilmesi gerektiğini ortaya koymaktadır.
-
-Kaur (2020), çalışmanın geçerliliğini dört başlık altında değerlendirmiştir: yapı geçerliliği (Construct Validity), iç geçerlilik (Internal Validity), dış geçerlilik (External Validity) ve güvenilirlik (Reliability). Yapı geçerliliği kapsamında araştırmanın yazılım mühendisliği alanıyla sınırlandırıldığı ve ilgili çalışmaların altı dijital kütüphaneden toplandığı belirtilmiştir. İç geçerlilik açısından otomatik ve manuel arama yöntemleri birlikte kullanılmış; ancak manuel tarama ve tam metin yerine yayınların üst verileri üzerinden yapılan aramalar nedeniyle bazı ilgili çalışmaların gözden kaçmış olabileceği kabul edilmiştir.
-
-Dış geçerlilik kapsamında, araştırma sonuçlarının incelenen çalışmalarla ve taramanın gerçekleştirildiği dönemle sınırlı olduğu vurgulanmıştır. Ayrıca belirlenen 22 kalite özelliğinin kapsamlı olmakla birlikte eksiksiz olmayabileceği ifade edilmiştir. Güvenilirliği artırmak amacıyla ise üç araştırmacının katkısıyla çalışma seçimi ve veri çıkarma süreçlerinde bağımsız kontroller gerçekleştirilmiş, araştırmacılar arasındaki görüş ayrılıkları ortak değerlendirmeler yoluyla giderilmiştir.
-
-Sonuç olarak Kaur (2020), kod kokuları ile yazılım kalitesi arasındaki ilişkinin karmaşık olduğunu ve mevcut deneysel bulguların her zaman tutarlı sonuçlar üretmediğini ortaya koymuştur. Bu çalışma, Rahman ve arkadaşlarının (2025) kod kokuları ile iç yazılım metrikleri arasındaki ilişkileri geniş ölçekli deneysel veriler üzerinden inceleyen araştırmasına önemli bir literatür temeli sağlamaktadır. Özellikle kod kokularının farklı kalite metrikleri üzerindeki etkilerinin ayrı ayrı değerlendirilmesi gerektiği yönündeki bulgular, Rahman ve arkadaşlarının araştırma yaklaşımıyla ilişkilendirilebilir.
-
-5.4. Verma ve Arkadaşları (2023)
-
-Verma ve arkadaşları (2023), “Code Smell Prioritization in Object-Oriented Software Systems: A Systematic Literature Review” başlıklı çalışmalarında, nesne yönelimli yazılım sistemlerinde kod kokularının (code smells) önceliklendirilmesine yönelik yöntemleri sistematik olarak incelemiştir. Araştırmada, 2011–2022 yılları arasında yayımlanan 39 birincil çalışma değerlendirilmiş; kullanılan önceliklendirme teknikleri, kod kokusu türleri, değerlendirme faktörleri, sıralama formülleri, veri kümeleri ve tespit araçları karşılaştırılmıştır.
-
-Çalışmada kod kokularını önceliklendirme yaklaşımları manuel, yarı otomatik ve tam otomatik olmak üzere üç grupta ele alınmıştır. Manuel yaklaşımların geliştirici deneyimine ve uzman değerlendirmesine dayanması nedeniyle öznel sonuçlar üretebildiği belirtilmiştir. Ayrıca incelenen çalışmalarda God Class ve Feature Envy kod kokularının sıklıkla ele alındığı, önceliklendirme sürecinde ise bileşenlerin kararlılığı ve sınıflar arasındaki bağımlılık (coupling) gibi faktörlerin önemli bir yer tuttuğu görülmüştür.
-
-Araştırmanın bulguları, kod kokularının önceliklendirilmesinde kullanılan sıralama formüllerinin sınırlı olduğunu, değerlendirme süreçlerinin büyük ölçüde manuel yöntemlere dayandığını ve çalışmaların çoğunlukla Java tabanlı projeler üzerinde gerçekleştirildiğini ortaya koymuştur. Bu doğrultuda araştırmacılar, daha kapsamlı yazılım metriklerinin kullanılması, otomatik değerlendirme yöntemlerinin geliştirilmesi ve farklı programlama dilleri üzerinde deneysel çalışmaların artırılması gerektiğini vurgulamıştır.
-
-Verma ve arkadaşlarının çalışması, kod kokularının yalnızca tespit edilmesinin yeterli olmadığını, bakım ve yeniden yapılandırma (refactoring) süreçlerinde hangi kod kokularının öncelikli olarak ele alınacağının da belirlenmesi gerektiğini göstermektedir. Bu yönüyle çalışma, kod kokuları ile yazılım metrikleri arasındaki ilişkilerin analiz edilmesinin, yazılım bakım kararlarını desteklemek açısından taşıdığı önemi ortaya koyan tamamlayıcı bir literatür kaynağı niteliğindedir.
+⸻
 
 6. Genel Değerlendirme ve Sonuç
 
@@ -450,3 +461,17 @@ Bununla birlikte, araştırmada kullanılan etki puanları istatistiksel korelas
 Gelecekte gerçekleştirilecek çalışmalarda, farklı programlama dilleri ve endüstriyel yazılım projelerinin incelenmesi, yeniden yapılandırma (Refactoring) öncesi ve sonrası kalite göstergelerinin karşılaştırılması ve bakım maliyetlerinin değerlendirmeye dahil edilmesi yararlı olabilir.
 
 Sonuç olarak Rahman ve arkadaşlarının (2025) araştırması, kod kokuları ile yazılım metrikleri arasındaki ilişkilerin geniş ölçekli ampirik veriler üzerinden değerlendirilmesine katkı sağlamaktadır. Çalışma, nesne yönelimli yazılım sistemlerinde kod kalitesinin analiz edilmesi ve bakım faaliyetlerinin daha sistematik biçimde planlanması açısından önemli bir yaklaşım sunmaktadır.
+
+⸻
+
+7. Kaynakça
+
+Fowler, M. (1999). Refactoring: Improving the design of existing code. Addison-Wesley.
+
+Kaur, A. (2020). A systematic literature review on empirical analysis of the relationship between code smells and software quality attributes. Archives of Computational Methods in Engineering, 27, 1267–1296. https://doi.org/10.1007/s11831-019-09348-6
+
+Rahman, M. M., Satter, A., Joarder, M. M. A., & Sakib, K. (2025). Software metric based impact analysis of code smells – A large scale empirical study. Software: Practice and Experience, 55, 925–945. https://doi.org/10.1002/spe.3405
+
+Verma, R., Kumar, K., & Verma, H. K. (2023). Code smell prioritization in object-oriented software systems: A systematic literature review. Journal of Software: Evolution and Process, 35, Article e2536. https://doi.org/10.1002/smr.2536
+
+Palomba ve arkadaşlarının (2018) çalışması: Kaynakça kaydının dergi, cilt, sayı ve sayfa bilgileri yayımlanmış sürüm üzerinden doğrulanarak eklenmelidir.
